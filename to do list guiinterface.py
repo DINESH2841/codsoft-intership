@@ -60,8 +60,7 @@ def sort_tasks():
     global tasks
     sort_type = sort_var.get()
     if sort_type == "Number Ascending":
-        # Original order (by insertion)
-        pass  # Do nothing, already in order
+               pass  
     elif sort_type == "Number Descending":
         tasks.reverse()
     elif sort_type == "Alphabet Ascending":
@@ -70,12 +69,9 @@ def sort_tasks():
         tasks.sort(key=lambda x: x["task"].lower(), reverse=True)
     save_tasks(tasks)
     update_task_list()
-
-# Create the main application window
 app = ctk.CTk()
 app.title("To-Do List")
 
-# Create the task entry field
 task_entry = ctk.CTkEntry(app, placeholder_text="Write your Task here", width=200)
 task_entry.pack(pady=10)
 add_button = ctk.CTkButton(app, text="Add Task", command=add_task)
@@ -90,7 +86,6 @@ mark_not_done_button.pack(pady=5)
 delete_button = ctk.CTkButton(app, text="Delete Task", command=delete_task)
 delete_button.pack(pady=5)
 
-# Sort options
 sort_var = tk.StringVar(value="Number Ascending")
 sort_options = ["Number Ascending", "Number Descending", "Alphabet Ascending", "Alphabet Descending"]
 sort_menu = ctk.CTkOptionMenu(app, variable=sort_var, values=sort_options)
