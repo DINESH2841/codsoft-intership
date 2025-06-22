@@ -25,7 +25,6 @@ class RPSGame:
         self.label = tk.Label(root, text="Choose Rock, Paper, or Scissors:", font=("Arial", 14))
         self.label.pack(pady=10)
 
-        # Hand signal frames
         self.hands_frame = tk.Frame(root)
         self.hands_frame.pack(pady=5)
         self.user_hand_label = tk.Label(self.hands_frame, text="❔", font=("Arial", 40))
@@ -74,7 +73,6 @@ class RPSGame:
 
     def animate_computer_choice(self):
         if self.animation_count < self.animation_max:
-            # Animate both hands
             user_anim = HAND_EMOJI[self.user_choice]
             computer_anim = HAND_EMOJI[random.choice(CHOICES)]
             self.user_hand_label.config(text=user_anim)
@@ -97,7 +95,6 @@ class RPSGame:
                      f"Computer chose: {self.computer_choice} {HAND_EMOJI[self.computer_choice]}\n{result}"
             )
             self.score_label.config(text=self.get_score_text())
-            # Start next round automatically after 5 seconds
             self.root.after(5000, self.reset_round)
 
     def reset_round(self):
